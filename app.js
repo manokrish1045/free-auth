@@ -12,6 +12,7 @@ const cors = require("cors")
 
 
 dbConnect();
+app.use(cors())
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -31,7 +32,6 @@ app.use((req, res, next) => {
 // body parser configuration
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors())
 
 app.get("/", (request, response, next) => {
   response.json({ message: "Hey! This is your server response!" });
