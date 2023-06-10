@@ -6,6 +6,8 @@ const bcrypt = require("bcrypt");
 const User = require("./db/userModel");
 const jwt = require("jsonwebtoken");
 const auth = require("./auth");
+const cors = require("cors")
+
 
 
 
@@ -29,6 +31,7 @@ app.use((req, res, next) => {
 // body parser configuration
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors())
 
 app.get("/", (request, response, next) => {
   response.json({ message: "Hey! This is your server response!" });
