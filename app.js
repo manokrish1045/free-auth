@@ -50,8 +50,7 @@ app.post("/register", (request, response) => {
       });
 
       // save the new user
-      user
-        .save()
+      user.save()
         // return success if the new user is added to the database successfully
         .then((result) => {
           response.status(201).send({
