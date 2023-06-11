@@ -61,14 +61,18 @@ app.post("/register", (request, response) => {
         })
         // catch error if the new user wasn't added successfully to the database
         .catch((error) => {
+          console.log(error)
           response.status(500).send({
             message: "Error creating user",
             error,
+
           });
         });
     })
     // catch error if the password hash isn't successful
     .catch((e) => {
+      console.log(e)
+
       response.status(500).send({
         message: "Password was not hashed successfully",
         e,
